@@ -3,29 +3,19 @@ def day1_part2(list):
     number = 50
     single_value = list.split(", ")
     for value in single_value:
-        if value[0] == "L":
-            number = number - int(value[1:])
-            while number <= 0:
+        for _ in range(int(value[1:])):
+            print(_)
+            if value[0] == "R":
+                number += 1
+            else:
+                number -= 1
+            
+            if number == -1 or number == 100:
+                number %= 100
+
+            if number == 0:
                 counter += 1
-                number += 100
-            print(f"Value: {value}, Number:{number}, Counter: {counter}")
-            # if number == 0:
-            #     counter += 1
-            # print(f"Number:{number}, Counter: {counter}")
-            #print(number)
-            #print(f"Counter {counter}")
-        if value[0] == "R":
-            number = number + int(value[1:])
-            while number >= 100:
-                counter += 1
-                number -= 100
-            print(f"Value: {value}, Number:{number}, Counter: {counter}")
-            # if number == 100:
-            #     counter += 1
-            # print(f"Number:{number}, Counter: {counter}")
-            #print(number)
-            #print(f"Counter {counter}")
-    print(f"Counter: {counter}")
+    print(counter)
 
 day1_part2("R1000, L1000, L50, R1, L1, L1, R1, R100, R1")
 

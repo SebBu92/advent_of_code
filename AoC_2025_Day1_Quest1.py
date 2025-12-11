@@ -2,7 +2,7 @@
 def find_zero_values():
     counter = 0
     number = 50
-    with open("aoc_quest1.txt", "r") as quest:
+    with open("AoC_day1.txt", "r") as quest:
         for values in quest: # textdatei öffnen
             value = values.split() # zeilenumbruch der werte in der txt
             for single_value in value: # jede zeile als eigener string
